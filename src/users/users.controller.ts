@@ -7,12 +7,12 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  create(@Body() dto: CreateUserDto) {
-    return this.usersService.create(dto);
+  createUser(@Body() dto: CreateUserDto) {
+    return this.usersService.saveUser(dto);
   }
 
   @Get()
-  findAll() {
-    return this.usersService.findAll();
+  getUsers() {
+    return this.usersService.getAllUsers();
   }
 }

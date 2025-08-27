@@ -9,19 +9,18 @@ export interface User {
 
 @Injectable()
 export class UsersService {
-  private users: User[] = [];
-  private idCounter = 1;
+  private fakeDb: User[] = [];
 
-  create(dto: CreateUserDto): User {
+  saveUser(dto: CreateUserDto): User {
     const user: User = {
-      id: this.idCounter++,
+      id: this.fakeDb.length + 1,
       ...dto,
     };
-    this.users.push(user);
+    this.fakeDb.push(user);
     return user;
   }
 
-  findAll(): User[] {
-    return this.users;
+  getAllUsers(): User[] {
+    return this.fakeDb;
   }
 }
