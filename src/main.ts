@@ -9,6 +9,7 @@ async function bootstrap() {
     logger: ['error', 'warn', 'log', 'debug'],
   });
 
+  app.enableShutdownHooks();
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
 
   const port = process.env.PORT ?? 3000
