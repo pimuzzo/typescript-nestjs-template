@@ -10,9 +10,15 @@ async function bootstrap() {
   });
 
   app.enableShutdownHooks();
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
 
-  const port = process.env.PORT ?? 3000
+  const port = process.env.PORT ?? 3000;
 
   const config = new DocumentBuilder()
     .setTitle('TypeScript NestJS Template')
@@ -27,4 +33,4 @@ async function bootstrap() {
   await app.listen(port);
 }
 
-bootstrap();
+void bootstrap();

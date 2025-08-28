@@ -1,0 +1,25 @@
+name: TypeScript CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test and Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Install dependencies
+        run: yarn install --immutable
+
+      - name: 🔍 Lint with ESLint
+        run: yarn lint
+
+      - name: ✅ Run tests
+        run: yarn test
